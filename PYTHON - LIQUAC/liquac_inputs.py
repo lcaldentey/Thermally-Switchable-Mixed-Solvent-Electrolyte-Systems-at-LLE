@@ -6,10 +6,6 @@ Data loader — equivalent to LIQUACinputs.m and UNIQUACinputs.m.
 All input Excel files are expected in the folder:
     <data_dir>/<salt>-<solvent>/   e.g.  ~/Desktop/Yip Lab/NaCl-DIPA/
 
-Each file is a single-sheet xlsx.  The first row may optionally contain
-column labels (e.g. "DIPA", "H2O", "Na+", "Cl-") — these are detected
-automatically and skipped.  Pure-number files also work without any changes.
-
 File list
 ---------
 r.xlsx        van-der-Waals relative volumes  [solvent, water, cation, anion]
@@ -165,7 +161,7 @@ class LIQUACInputs:
         if "DIPA" in solvent:
             # Density [kg/m³]:      https://doi.org/10.1016/j.jct.2018.12.012
             rho_solvent    = -0.9675 * T_exp + 1003.6
-            # Dielectric constant:  experimentally determined by Eliza Dach
+            # Dielectric constant:  experimentally determined by Eliza (I believe, if not can change :) )
             dielec_solvent = -7.32e-3 * (T_exp - 273.15) + 3.24
         else:
             raise ValueError(
